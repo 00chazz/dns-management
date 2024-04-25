@@ -1,4 +1,4 @@
-# DNS Management Exercises
+# DNS Management Exercises (in progress)
 
 ## Overview
 This project focuses on hands-on DNS management exercises using a Windows Server 2022 environment to demonstrate critical handling of DNS configurations, including A and CNAME records. These exercises illustrate the importance of accurate DNS settings for network reliability and efficiency.
