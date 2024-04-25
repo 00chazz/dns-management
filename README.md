@@ -1,48 +1,38 @@
-<h1>DNS Management Exercises</h1>
+# DNS Management Exercises
 
-<h2>Overview</h2>
-This project involved managing DNS settings, including A and CNAME records, in order to critically handle network services that ensure proper network operations and connectivity.
+## Overview
+This project focuses on hands-on DNS management exercises using a Windows Server 2022 environment to demonstrate critical handling of DNS configurations, including A and CNAME records. These exercises illustrate the importance of accurate DNS settings for network reliability and efficiency.
 
 ## Environments and Technologies Used
-- **DNS Server**: Configuration on a Windows Server environment
+- **DNS Server**: Configured on Windows Server 2022
 - **Operating Systems Used**:
-  - Windows Server 2022
+  - Windows Server 2022 (Domain Controller DC-1)
+  - Windows 10 (Client Machine Client-1)
 
 ## High-Level Configuration Steps
-1. **Setup a DNS Server on Windows Server**:
-   - Install and configure the DNS role on a Windows Server.
-2. **Configure A and CNAME Records**:
-   - Add and modify A and CNAME records to reflect changes in the network.
-3. **Test DNS Resolutions**:
-   - Verify that the DNS records are correctly resolving to their respective IP addresses.
+1. **Setup DNS Server on Windows Server**:
+   - Install and configure the DNS role on Windows Server 2022.
+2. **Perform DNS Record Configurations and Testing**:
+   - Conduct exercises to add, modify, and test A and CNAME records.
+3. **Validate DNS Resolutions and Cache Management**:
+   - Test DNS resolutions and understand the behavior of DNS caching.
 
 ## Detailed Configuration and Testing Steps
 
 ### Step 1: Setup DNS Server
 - **Install DNS Server Role**:
-  - On your Windows Server 2022, use the Server Manager to add the DNS server role.
-  - **Screenshot**: Capture the completion screen of the DNS role installation to show it has been successfully added.
+  - Use the Server Manager on DC-1 to add the DNS server role.
 
 - **Initial DNS Configuration**:
-  - Set up basic DNS settings to prepare for managing DNS records.
-  - **Screenshot**: Show the initial DNS dashboard or the main configuration page where DNS zones are visible.
+  - Configure initial DNS settings to manage DNS zones and records effectively.
 
-### Step 2: Configure DNS Records
-- **Add A Records**:
-  - Create A records to map domain names to IP addresses. For instance, map `example.com` to `192.168.1.1`.
-  - **Screenshot**: Display the DNS management console with the list of new A records added, highlighting the mappings.
+### Step 2: Perform DNS Record Configurations and Testing
+- **A-Record Exercise**:
+  - Log into DC-1, create an A record for "mainframe" pointing to DC-1's private IP address. Test pinging "mainframe" from Client-1 to verify resolution.
 
-- **Modify CNAME Records**:
-  - Set up CNAME records to alias one domain name to another. For example, alias `www.example.com` to `example.com`.
-  - **Screenshot**: Illustrate the DNS console showing the CNAME records configuration with the domain aliases properly set.
+- **CNAME Record Exercise**:
+  - Create a CNAME record on DC-1 that aliases "search" to "www.google.com". Use Client-1 to test the resolution of "search" via ping and `nslookup`.
 
-### Step 3: Test DNS Resolutions
-- **DNS Lookup Tests**:
-  - Use tools like `nslookup` or `dig` to test if the DNS records are resolving correctly. Perform this from different clients if possible.
-  - **Screenshot**: Capture the command-line output of `nslookup www.example.com` showing the IP address it resolves to, matching the A record.
-
-## Conclusion
-Effective DNS management is crucial for ensuring network reliability and efficiency. This project provides a practical approach to managing DNS records, highlighting best practices for configuring A and CNAME records to support robust network operations.
-
-## Connect with Me
-- **LinkedIn:** [Chazz Conino](https://www.linkedin.com/in/chazz-c-382a75122/)
+### Step 3: Validate DNS Resolutions and Cache Management
+- **Local DNS Cache Exercise**:
+  - Change the "mainframe" A record to a different IP (e.g., 8.8.8.8), then observe and manage DNS cache behavior on Client-1 using `ipconfig /displaydns` and `ipconfig /flushdns`.
